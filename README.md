@@ -18,3 +18,8 @@ Launch a game and simultaneously start a Task in Windows' Task Scheduler (for ex
 cmd /c start /min "" "%command%" & schtasks.exe -Run -TN [TLD]BackupSaves
 ```
 Basically, whatever EXE comes after `&` will be launched as well as the game itself.
+
+---
+In my above example I run a Task named [TLD]BackupSaves with the following *Action* for curious minds and ***The Long Dark*** fans.
+- Program: `powershell.exe`
+- Arguments: `/Command "$date=get-date -Format yyyy-MMM-dd---HH-mm; Compress-Archive -Path C:\Users\Anton\AppData\Local\Hinterland\* -DestinationPath E:\CloudOne\CloudFast\Gamesaves\TLD\Hinterland-$date.zip -Force -CompressionLevel Fastest"`
